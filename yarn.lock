@@ -756,6 +756,13 @@ commondir@^1.0.1:
   resolved "https://registry.yarnpkg.com/commondir/-/commondir-1.0.1.tgz#ddd800da0c66127393cca5950ea968a3aaf1253b"
   integrity sha1-3dgA2gxmEnOTzKWVDqloo6rxJTs=
 
+compromise@^13.8.0:
+  version "13.8.0"
+  resolved "https://registry.yarnpkg.com/compromise/-/compromise-13.8.0.tgz#05dc8a0e3a248b499fc49b3b6a451af0c74c8efa"
+  integrity sha512-j+hIo096v9S3lEC9iEFP2nVqCDwvWD3GyqvL/fSIo4CcJ8ddFTbvufeTWcvfcpxU8dLkKLmcUIvM3EXu4Sw5mg==
+  dependencies:
+    efrt-unpack "2.2.0"
+
 console-browserify@^1.1.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/console-browserify/-/console-browserify-1.2.0.tgz#67063cef57ceb6cf4993a2ab3a55840ae8c49336"
@@ -1037,6 +1044,11 @@ domutils@^2.4.2:
     dom-serializer "^1.0.1"
     domelementtype "^2.0.1"
     domhandler "^4.0.0"
+
+efrt-unpack@2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/efrt-unpack/-/efrt-unpack-2.2.0.tgz#b05dbec0fb8cb346a27840e00c969df9c72fee52"
+  integrity sha512-9xUSSj7qcUxz+0r4X3+bwUNttEfGfK5AH+LVa1aTpqdAfrN5VhROYCfcF+up4hp5OL7IUKcZJJrzAGipQRDoiQ==
 
 electron-to-chromium@^1.3.634:
   version "1.3.649"

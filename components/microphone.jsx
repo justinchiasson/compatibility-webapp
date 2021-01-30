@@ -1,8 +1,9 @@
-import { IconButton } from '@material-ui/core';
+import { IconButton, Typography } from '@material-ui/core';
 import { SettingsVoiceOutlined } from '@material-ui/icons';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 import { useState, useEffect } from 'react';
 import { getItems } from '../backend/apiCommunicator';
+import { parseQuery } from '../backend/queryParser';
 
 const Microphone = () => {
 
@@ -14,14 +15,13 @@ const Microphone = () => {
         return null;
     }
     
-    useEffect(() => {
+    useEffect(async () => {
         // call search method when done listening
         if (!listening && finalTranscript) {
-            console.log(finalTranscript);
-            getItems(finalTranscript).then(r => {
-                console.log(r)
-                resetTranscript
-            })
+            const searchQuery = parseQuery(finalTranscript);
+            resetTranscript();
+            const response = await getItems(searchQuery);
+            console.log(response);
         }
 
         if (transcript) {
@@ -40,7 +40,10 @@ const Microphone = () => {
             <IconButton fontSize='large' onClick={handleListening}>
                 <SettingsVoiceOutlined />
             </IconButton>
+            <Typography>
             {query}
+
+            </Typography>
         </>
     );
 };
