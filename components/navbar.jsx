@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { BottomNavigation, BottomNavigationAction, Container } from '@material-ui/core';
+import { BottomNavigation, BottomNavigationAction } from '@material-ui/core';
 import { RestoreOutlined, SettingsVoiceOutlined, FindInPageOutlined } from '@material-ui/icons';
 import styled from 'styled-components';
 
@@ -13,6 +13,7 @@ const StyledBottomNav = styled(BottomNavigation)`
 
 const StyledNavButton = styled(BottomNavigationAction)`
     background: ${(props) => props.theme.palette.secondary.light};
+    box-shadow: 0px 1px 4px 1px ${(props) => props.theme.palette.secondary.dark};
     border-radius: 2em;
     height: 75%;
     margin: auto;
@@ -28,21 +29,19 @@ const Navbar = () => {
     };
 
     return (
-        <Container maxWidth="md">
-            <StyledBottomNav value={value} onChange={handleChange}>
-                <Link href="/history">
-                    <StyledNavButton value={'history'} icon={<RestoreOutlined />} />
-                </Link>
+        <StyledBottomNav value={value} onChange={handleChange}>
+            <Link href="/history">
+                <StyledNavButton value={'history'} icon={<RestoreOutlined />} />
+            </Link>
 
-                <Link href="/">
-                    <StyledNavButton value={'home'} icon={<SettingsVoiceOutlined />} />
-                </Link>
+            <Link href="/">
+                <StyledNavButton value={'home'} icon={<SettingsVoiceOutlined />} />
+            </Link>
 
-                <Link href="/results">
-                    <StyledNavButton value={'results'} icon={<FindInPageOutlined />} />
-                </Link>
-            </StyledBottomNav>
-        </Container>
+            <Link href="/results">
+                <StyledNavButton value={'results'} icon={<FindInPageOutlined />} />
+            </Link>
+        </StyledBottomNav>
     );
 };
 

@@ -9,7 +9,7 @@ const StyledAppbar = styled(Container)`
 
 const Appbar = () => {
     return (
-        <StyledAppbar maxWidth="md">
+        <StyledAppbar>
             <Typography variant="h1">GeekSpeek</Typography>
         </StyledAppbar>
     );
