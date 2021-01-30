@@ -5,5 +5,5 @@ export const parseQuery = (query) => {
 
     let language = nlp(query);
 
-    return language.nouns().out('array').join(" ");
-}
+    return language.nouns().out('array').join(' ');
+};

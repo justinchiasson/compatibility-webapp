@@ -4,23 +4,20 @@ import { BottomNavigation, BottomNavigationAction, Container } from '@material-u
 import { RestoreOutlined, SettingsVoiceOutlined, FindInPageOutlined } from '@material-ui/icons';
 import styled from 'styled-components';
 
-const StyledNavbar = styled(Container)`
-    background-color: ${(props) => props.theme.palette.primary.light};
-    border-radius: 10px;
-    padding: 0  0;
-`;
-
 const StyledBottomNav = styled(BottomNavigation)`
     display: flex;
+    border-radius: 1em;
     background: ${(props) => props.theme.palette.primary.light};
+    height: 6rem;
 `;
 
 const StyledNavButton = styled(BottomNavigationAction)`
     background: ${(props) => props.theme.palette.secondary.light};
-    border-radius: 20px;
+    border-radius: 2em;
     height: 75%;
     margin: auto;
     padding: 0 0 !important;
+    font-size: 6rem;
 `;
 
 const Navbar = () => {
@@ -31,7 +28,7 @@ const Navbar = () => {
     };
 
     return (
-        <StyledNavbar maxWidth="md">
+        <Container maxWidth="md">
             <StyledBottomNav value={value} onChange={handleChange}>
                 <Link href="/history">
                     <StyledNavButton value={'history'} icon={<RestoreOutlined />} />
@@ -48,7 +45,7 @@ const Navbar = () => {
                     />
                 </Link>
             </StyledBottomNav>
-        </StyledNavbar>
+        </Container>
     );
 };
 

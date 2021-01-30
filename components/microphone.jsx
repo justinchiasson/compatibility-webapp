@@ -9,8 +9,6 @@ import styled from 'styled-components';
 const StyledIcon = styled(SettingsVoiceOutlined)`
     fill: ${(props) => props.theme.palette.secondary.light};
     font-size: 10em;
-    stroke: ${(props) => props.theme.palette.secondary.main};
-    stroke-width: 1px;
 `;
 
 const StyledIconButton = styled(IconButton)`
@@ -23,7 +21,6 @@ const StyledIconButton = styled(IconButton)`
 `;
 
 const Microphone = () => {
-
     const [query, setQuery] = useState();
 
     const { transcript, resetTranscript, listening, finalTranscript } = useSpeechRecognition();
@@ -31,7 +28,7 @@ const Microphone = () => {
     if (!SpeechRecognition.browserSupportsSpeechRecognition()) {
         return null;
     }
-    
+
     useEffect(async () => {
         // call search method when done listening
         if (!listening && finalTranscript) {
@@ -50,17 +47,14 @@ const Microphone = () => {
         resetTranscript();
         setQuery();
         await SpeechRecognition.startListening();
-    }
+    };
 
     return (
         <>
-            <StyledIconButton fontSize='large' onClick={handleListening}>
+            <StyledIconButton fontSize="large" onClick={handleListening}>
                 <StyledIcon />
             </StyledIconButton>
-            <Typography>
-            {query}
-
-            </Typography>
+            <Typography>{query}</Typography>
         </>
     );
 };

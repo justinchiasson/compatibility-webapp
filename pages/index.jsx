@@ -9,7 +9,7 @@ const ColoredBox = styled(Container)`
     display: flex;
     justify-content: center;
     padding: 3em 3em;
-    font-size: 16px;
+    text-align: center;
 `;
 
 const LightBox = styled(Container)`
@@ -22,7 +22,7 @@ export default function history() {
     return (
         <Layout>
             <ColoredBox maxWidth="md" my={2}>
-                <Typography variant="body1">
+                <Typography variant="h3" component="p">
                     Press the microphone and say anything into your phone!
                 </Typography>
             </ColoredBox>
