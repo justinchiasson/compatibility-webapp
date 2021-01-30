@@ -39,10 +39,7 @@ const Navbar = () => {
                 </Link>
 
                 <Link href="/results">
-                    <StyledNavButton
-                        value={'results'}
-                        icon={<FindInPageOutlined />}
-                    />
+                    <StyledNavButton value={'results'} icon={<FindInPageOutlined />} />
                 </Link>
             </StyledBottomNav>
         </Container>
