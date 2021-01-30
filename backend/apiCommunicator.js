@@ -21,7 +21,6 @@ async function searchAPI(keyword) {
             });
             res.on("end", () => {
                 try {
-                    console.log(JSON.parse(data))
                     return resolve(JSON.parse(data));
                 } catch (err) {
                     console.log("ERROR! : "+err)

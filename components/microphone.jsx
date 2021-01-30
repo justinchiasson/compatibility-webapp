@@ -2,6 +2,7 @@ import { IconButton } from '@material-ui/core';
 import { SettingsVoiceOutlined } from '@material-ui/icons';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 import { useState, useEffect } from 'react';
+import { getItems } from '../backend/apiCommunicator';
 
 const Microphone = () => {
 
@@ -17,7 +18,10 @@ const Microphone = () => {
         // call search method when done listening
         if (!listening && finalTranscript) {
             console.log(finalTranscript);
-            resetTranscript();
+            getItems(finalTranscript).then(r => {
+                console.log(r)
+                resetTranscript
+            })
         }
 
         if (transcript) {
