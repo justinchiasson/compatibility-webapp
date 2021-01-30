@@ -1,10 +1,9 @@
-import { Box, Button, Typography } from '@material-ui/core';
+import { Box, Typography } from '@material-ui/core';
+import 'regenerator-runtime/runtime.js';
 import Layout from '../components/layout';
 import Microphone from '../components/microphone';
-import { getItems} from '../backend/apiCommunicator';
 
 export default function history() {
-
     return (
         <Layout>
             <Box>
