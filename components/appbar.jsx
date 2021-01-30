@@ -1,12 +1,19 @@
-import { AppBar, Toolbar, Typography } from '@material-ui/core';
+import { Container, Typography } from '@material-ui/core';
+import styled from 'styled-components';
+
+const StyledAppbar = styled(Container)`
+    background-color: ${(props) => props.theme.palette.primary.light};
+    border-radius: 10px;
+    color: black;
+`;
 
 const Appbar = () => {
     return (
-        <AppBar color='primary' position='static'>
-            <Toolbar>
-                <Typography color='secondary' variant='h3' component='h1'>GeekSpeek</Typography>
-            </Toolbar>
-        </AppBar>
+        <StyledAppbar maxWidth="md">
+            <Typography variant="h2" component="h1">
+                GeekSpeek
+            </Typography>
+        </StyledAppbar>
     );
 };
 

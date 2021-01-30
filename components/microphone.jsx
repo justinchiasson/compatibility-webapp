@@ -4,6 +4,23 @@ import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognitio
 import { useState, useEffect } from 'react';
 import { getItems } from '../backend/apiCommunicator';
 import { parseQuery } from '../backend/queryParser';
+import styled from 'styled-components';
+
+const StyledIcon = styled(SettingsVoiceOutlined)`
+    fill: ${(props) => props.theme.palette.secondary.light};
+    font-size: 10em;
+    stroke: ${(props) => props.theme.palette.secondary.main};
+    stroke-width: 1px;
+`;
+
+const StyledIconButton = styled(IconButton)`
+    background: ${(props) =>
+        `linear-gradient(45deg, ${props.theme.palette.primary.light} 60%,  ${props.theme.palette.primary.dark} 100%)`};
+    border-radius: 100%;
+    width: 15em;
+    height: 15em;
+    padding: 1em;
+`;
 
 const Microphone = () => {
 
@@ -37,9 +54,9 @@ const Microphone = () => {
 
     return (
         <>
-            <IconButton fontSize='large' onClick={handleListening}>
-                <SettingsVoiceOutlined />
-            </IconButton>
+            <StyledIconButton fontSize='large' onClick={handleListening}>
+                <StyledIcon />
+            </StyledIconButton>
             <Typography>
             {query}
 
