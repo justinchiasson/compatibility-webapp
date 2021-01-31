@@ -7,7 +7,7 @@ import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognitio
 import { useState, useEffect } from 'react';
 import { getItems } from '../backend/apiCommunicator';
 import { parseQuery } from '../backend/queryParser';
-import { DemoCard } from '../components/card';
+import Card, { DemoCard } from '../components/card';
 
 const StyledBox = styled(Container)`
     color: white;
@@ -19,12 +19,29 @@ const StyledBox = styled(Container)`
 
 export default function home() {
     const [query, setQuery] = useState();
+    const [response, setResponse] = useState();
     const [displayResults, setDisplayResults] = useState(false);
 
     const { transcript, resetTranscript, listening, finalTranscript } = useSpeechRecognition();
 
     if (!SpeechRecognition.browserSupportsSpeechRecognition()) {
         return null;
+    }
+
+    function createCards() {
+        return (
+            <>
+                {response.products.map((product) => {
+                return <Card
+                    title={product.name}
+                    price={product.regularPrice}
+                    description={product.shortDescription}
+                    src={product.thumbnailImage}
+                />
+            })
+            }
+            </>
+        )
     }
 
     useEffect(async () => {
@@ -34,6 +51,7 @@ export default function home() {
             resetTranscript();
             const response = await getItems(searchQuery);
             console.log(response);
+            setResponse(response);
         }
 
         if (transcript) {
@@ -70,13 +88,8 @@ export default function home() {
                 )}
             </StyledBox>
             <StyledBox maxWidth="md">
-                {displayResults ? (
-                    <>
-                        <DemoCard />
-                        <DemoCard />
-                        <DemoCard />
-                    </>
-                ) : (
+                {displayResults ? response?.products && createCards()
+                 : (
                     <Microphone onClick={handleListening} />
                 )}
             </StyledBox>
