@@ -10,7 +10,7 @@ import { parseQuery } from '../backend/queryParser';
 import Card, { DemoCard } from '../components/card';
 
 const StyledBox = styled(Container)`
-    color: white;
+    color: black;
     display: flex column;
     justify-content: center;
     padding: 1em 3em;
@@ -32,16 +32,17 @@ export default function home() {
         return (
             <>
                 {response.products.map((product) => {
-                return <Card
-                    title={product.name}
-                    price={product.regularPrice}
-                    description={product.shortDescription}
-                    src={product.thumbnailImage}
-                />
-            })
-            }
+                    return (
+                        <Card
+                            title={product.name}
+                            price={product.regularPrice}
+                            description={product.shortDescription}
+                            src={product.thumbnailImage}
+                        />
+                    );
+                })}
             </>
-        )
+        );
     }
 
     useEffect(async () => {
@@ -88,8 +89,9 @@ export default function home() {
                 )}
             </StyledBox>
             <StyledBox maxWidth="md">
-                {displayResults ? response?.products && createCards()
-                 : (
+                {displayResults ? (
+                    response?.products && createCards()
+                ) : (
                     <Microphone onClick={handleListening} />
                 )}
             </StyledBox>

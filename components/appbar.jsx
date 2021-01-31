@@ -5,12 +5,13 @@ const StyledAppbar = styled(Container)`
     background-color: ${(props) => props.theme.palette.primary.main};
     border-radius: 1em;
     color: white;
+    text-align: center;
 `;
 
 const Appbar = () => {
     return (
         <StyledAppbar>
-            <Typography variant="h1">GeekSpeek</Typography>
+            <Typography variant="h1">GeekSpeak</Typography>
         </StyledAppbar>
     );
 };

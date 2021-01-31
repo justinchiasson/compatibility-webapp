@@ -9,6 +9,8 @@ import styled from 'styled-components';
 
 const StyledPaper = styled(Box)`
     background: ${(props) => props.theme.palette.secondary.light};
+    border: 1rem solid ${(props) => props.theme.palette.primary.light};
+    border-radius: 2rem;
 `;
 
 const Layout = ({ children }) => {
@@ -17,7 +19,7 @@ const Layout = ({ children }) => {
             <ThemeProvider theme={theme}>
                 <MuiThemeProvider theme={theme}>
                     <Head>
-                        <title>GeekSpeek</title>
+                        <title>GeekSpeak</title>
                         <link rel="icon" href="/geek-speek.png" />
                     </Head>
 
