@@ -6,7 +6,8 @@ const StyledCard = styled.div`
     border-radius: 2rem;
     display: flex;
     margin: 1rem 3rem;
-    background: ${(props) => props.theme.palette.primary.light};
+    background: ${(props) =>
+        `linear-gradient(45deg, ${props.theme.palette.primary.main} 10%,  ${props.theme.palette.primary.dark} 100%)`};
 `;
 
 const CardContent = styled.div`
@@ -19,6 +20,15 @@ const CardImage = styled.img`
     margin: 1rem 1rem;
     object-fit: contain;
 `;
+
+export const DemoCard = () => (
+    <Card
+        title="Smart TV"
+        price="$150.00"
+        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nulla facilisi cras fermentum odio eu. "
+        src="https://via.placeholder.com/55"
+    />
+);
 
 const Card = ({ title, description, price, src }) => {
     return (

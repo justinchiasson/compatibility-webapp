@@ -2,9 +2,9 @@ import { Container, Typography } from '@material-ui/core';
 import styled from 'styled-components';
 
 const StyledAppbar = styled(Container)`
-    background-color: ${(props) => props.theme.palette.primary.light};
+    background-color: ${(props) => props.theme.palette.primary.main};
     border-radius: 1em;
-    color: black;
+    color: white;
 `;
 
 const Appbar = () => {

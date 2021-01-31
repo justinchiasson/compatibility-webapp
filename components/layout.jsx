@@ -4,7 +4,6 @@ import { Box, Container } from '@material-ui/core';
 import { MuiThemeProvider, StylesProvider } from '@material-ui/core/styles';
 import Head from 'next/head';
 import Appbar from './appbar';
-import Navbar from './navbar';
 import theme from '../theme';
 import styled from 'styled-components';
 
@@ -27,7 +26,6 @@ const Layout = ({ children }) => {
                             <Container maxWidth="md">
                                 <Appbar />
                                 {children}
-                                <Navbar />
                             </Container>
                         </StyledPaper>
                     </main>
